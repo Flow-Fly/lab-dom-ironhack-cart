@@ -36,12 +36,13 @@ function createProduct() {
   const template = document.getElementById('productRow')
   const clone = document.importNode(template.content, true)
 
-  const name = document.querySelector('.create-product td:first-of-type input').value
-  const price = document.querySelector('.create-product td:nth-of-type(2) input').value
+  const name = document.querySelector('.create-product td:first-of-type input')
+  const price = document.querySelector('.create-product td:nth-of-type(2) input')
 
-  clone.querySelector('.name span').textContent = name
-  clone.querySelector('.price span').textContent = price
-  
+  clone.querySelector('.name span').textContent = name.value
+  clone.querySelector('.price span').textContent = price.value
+  name.value = ''
+  price.value = ''
   tbody.appendChild(clone)
   initRemoveBtn()
 }
